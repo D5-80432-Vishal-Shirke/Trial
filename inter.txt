@@ -1,0 +1,10 @@
+design pattern
+spring annotations
+spring bean life cycle
+hibernate life cycle
+ioc
+dependency injection
+aspected oriented programming 
+listeners
+filters
+jwt token

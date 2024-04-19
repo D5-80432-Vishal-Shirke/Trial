@@ -1,0 +1,190 @@
+cyphertext
+ public static String encrypt(String text, int s)
+    {
+        StringBuffer result= new StringBuffer();
+ 
+        for (int i=0; i<text.length(); i++)
+        {
+            if(text.charAt(i)==' ')
+            {
+                result.append(' ');
+            }
+            else
+            {
+            if (Character.isUpperCase(text.charAt(i)))
+            {
+                char ch = (char)(((int)text.charAt(i) +
+                                  s - 65) % 26 + 65);
+                result.append(ch);
+            }
+            else
+            {
+                char ch = (char)(((int)text.charAt(i) +
+                                  s - 97) % 26 + 97);
+                result.append(ch);
+            }}
+        }
+        return result.toString();
+    }
+===========================================================================
+
+Nth term in fibonacci series
+ 		int n = 50;
+		long result =0;
+		long r1 = 0;
+		long r2 = 1;
+		if(n == 1)
+		System.out.println(0);
+		else
+		{
+		    for(int i = 1;i<n-1;i++){
+		        result=r1+r2;
+		        r1=r2;
+		        r2=result;
+		    }
+		    System.out.println(result);
+		}
+
+==================================================================================
+max length substring
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MaxLengthSubstrings {
+    public static List<String> maxLengthSubstrings(String str1, String str2) {
+        List<String> substrings = new ArrayList<>();
+        int maxLength = 0;
+
+        for (int i = 0; i < str1.length(); i++) {
+            for (int j = 0; j < str2.length(); j++) {
+                int m = i;
+                int n = j;
+                while (m < str1.length() && n < str2.length() && str1.charAt(m) == str2.charAt(n)) {
+                    m++;
+                    n++;
+                }
+
+                int length = m - i;
+                if (length > 0) {
+                    if (length > maxLength) {
+                        maxLength = length;
+                        substrings.clear();
+                        substrings.add(str1.substring(i, m));
+                    } else if (length == maxLength) {
+                        substrings.add(str1.substring(i, m));
+                    }
+                }
+            }
+        }
+
+        return substrings;
+    }
+
+    public static void main(String[] args) {
+        String str1 = "ABCAB";
+        String str2 = "BCABD";
+
+        List<String> result = maxLengthSubstrings(str1, str2);
+
+        System.out.println("Output: " + result);
+    }
+}
+===============================================================================
+import java.util.ArrayList;
+import java.util.List;
+
+public class MaxLengthSubstrings {
+    public static List<String> maxLengthSubstrings(String str1, String str2) {
+        List<String> substrings = new ArrayList<>();
+        int maxLength = 0;
+
+        for (int i = 0; i < str1.length(); i++) {
+            for (int j = 0; j < str2.length(); j++) {
+                int m = i;
+                int n = j;
+                while (m < str1.length() && n < str2.length() && str1.charAt(m) == str2.charAt(n)) {
+                    m++;
+                    n++;
+                }
+
+                int length = m - i;
+                if (length > 0) {
+                    if (length > maxLength) {
+                        maxLength = length;
+                        substrings.clear();
+                        substrings.add(str1.substring(i, m));
+                    } else if (length == maxLength) {
+                        substrings.add(str1.substring(i, m));
+                    }
+                }
+            }
+        }
+
+        return substrings;
+    }
+
+    public static void main(String[] args) {
+        String str1 = "ABCAB";
+        String str2 = "BCABD";
+
+        List<String> result = maxLengthSubstrings(str1, str2);
+
+        System.out.println("Output: " + result);
+    }
+}
+===================================================================
+
+import java.util.Arrays;
+
+public class MinMaxDifference {
+    public static void main(String[] args) {
+        int number = 213;
+        String numString = Integer.toString(number);
+
+        char[] digitsArray = numString.toCharArray();
+        Arrays.sort(digitsArray);
+
+        String minString = new String(digitsArray);
+        int minNumber = Integer.parseInt(minString);
+
+        String maxString = new StringBuilder(minString).reverse().toString();
+        int maxNumber = Integer.parseInt(maxString);
+
+        int difference = maxNumber - minNumber;
+
+        System.out.println("Minimum Number: " + minNumber);
+        System.out.println("Maximum Number: " + maxNumber);
+        System.out.println("Difference: " + difference);
+    }
+}
+
+=============================================================================
+public class StringMatcher {
+
+    public static boolean hasMatchingCharacters(String str1, String str2) {
+        String[] words1 = str1.split(":");
+        String[] words2 = str2.split(":");
+
+        for (int i = 0; i < words1.length; i++) {
+            String word1 = words1[i];
+            String word2 = words2[i];
+
+            for (int j = 0; j < word1.length(); j++) {
+                if (word1.charAt(j) == word2.charAt(j)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public static void main(String[] args) {
+        String input1 = "Love you so much";
+        String input2 = "math are as pass";
+
+        boolean result = hasMatchingCharacters(input1, input2);
+        System.out.println(result);
+    }
+}

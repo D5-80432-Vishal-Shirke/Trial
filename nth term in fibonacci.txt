@@ -1,0 +1,21 @@
+public class Main
+{
+	public static void main(String[] args) {
+	    int n = 50;
+		long result =0;
+		long r1 = 0;
+		long r2 = 1;
+		if(n == 1)
+		System.out.println(0);
+		else
+		{
+		    for(int i = 1;i<n-1;i++){
+		        result=r1+r2;
+		        r1=r2;
+		        r2=result;
+		    }
+		    System.out.println(result);
+		}
+		
+	}
+}
